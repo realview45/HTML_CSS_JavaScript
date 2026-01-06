@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML TABLE</title>
+</head>
+<!-- <body background="images/cat.jpg"> -->
+<!-- <body style="background-color: purple;"> -->
+<body>
+    <h2>글자 스타일링 예제</h2>
+    <p style="color: blue;">1. 글자색 변경</p>
+    <p style="background-color: grey;">2. 배경색 변경</p>
+    <p style="font-size: 20px;">3. 글자크기 변경</p>
+    <p style="color: blue; font-size: 25px; text-align: center;">4. 복합스타일링</p>
+
+    <h2>link와 이미지삽입</h2>
+    <div>
+        <!-- _blank : 새탭으로 이동 _self : -->
+        <a href="https://www.naver.com" target="_blank">네이버</a>
+    </div>
+    <div>
+        <!-- 이미지 주소 포함 방법 2가지 
+         1)프로젝트 특정 경로안에 이미지 저장 잘안쓰구리
+         2)이미지의 url링크를 삽입(불안하구리)
+         3)나만의 고유 url aws에서 만들기
+         -->
+         <!-- alt : 이미지가 깨졌을 때 출력되는 대체문자열. 시각장애인용 reader기에서 인식. -->
+          <!-- a태그를 이미지로 감쌌다 -->
+    <a href="https://www.naver.com" target="_blank">
+        <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNTEwMjBfOTkg%2FMDAxNzYwOTQzNTgyODIx.jI0ON9YRmeDI8TlahuGW1MdSTd7S4003uxVyN2f81X0g.-LPJkEbzIHCn5Ep38f9nQ5ue3rJRiwDBp4HfxvrfLgwg.JPEG%2F6.jpg&type=a340" 
+        alt="고양이이미지" width="300px" height="200px" style="border: 3px solid black;">
+          </a>
+    </div>
+    <!-- 기억하구리 -->
+    <h2>리스트(ol-순서가있는, ul-순서가없는)</h2>
+    <ol style="list-style-type: upper-roman;">
+        <li>아이템A</li>
+        <li>아이템B</li>
+        <li>아이템C</li>
+    </ol>
+    <ul style="list-style-type: square;">
+        <li>아이템A</li>
+        <li>아이템B</li>
+        <li>아이템C</li>
+    </ul>
+    <h2>테이블 예제</h2>
+    <!-- 눈에 안보이는 border가 있긴 있는데 보이게 설정구리 각각의 영역이 있어서 겹겹이 나오는데 보더없애는 코드구리 -->
+    <table border="1" style="border-collapse:collapse;">
+        <caption>테이블명</caption>
+        <!-- thead tbody는 붙여도 안붙여도 상관없구리 디자인 목적구리 -->
+        <thead>
+            <tr><th>컬럼명1</th><th>컬럼명2</th><th>컬럼명3</th></tr>   
+        </thead>
+        <tbody>
+            <tr><td>데이터1-A</td><td>데이터1-B</td><td>데이터1-C</td></tr>
+            <tr><td>데이터2-A</td><td>데이터2-B</td><td>데이터2-C</td></tr>
+            <tr><td>데이터3-A</td><td>데이터3-B</td><td>데이터3-C</td></tr>
+        </tbody>
+    </table>
+        <p></p>
+    <!-- 테이블만들기 실습 -->
+    <!-- 테이블명 : 게시글목록조회, 컬럼명 : id, title, contents, author_email -->
+    <table border="1" style="border-collapse:collapse;">
+        <thead>
+            <tr><th>id</th><th>title</th><th>contents</th><th>author_email</th></tr>   
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>hello1</td><td>abc ...</td><td>abc@naver.com</td></tr>
+            <tr><td>2</td><td>hello2</td><td>abc ...</td><td>abc@naver.com</td></tr>
+            <tr><td>3</td><td>hello3</td><td>abc ...</td><td>abc@naver.com</td></tr>
+        </tbody>
+     </table>
+</body>
+</html>

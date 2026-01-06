@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css basic</title>
+</head>
+<body>
+    <h2>문자에 대한 설정</h2>
+    <p style="font-style: italic">font style</p>
+
+    <p style="font-family: 'Times New Roman', Times, serif;">font family</p>
+    <!-- 그냥 픽셀 적용시 절대크기 웹은 절대크기 많이 사용구리 -->
+    <p style="font-size: 30px;">font size</p>
+
+    <h2>글꼴의 상대크기</h2>
+    <!-- html에서 별도의 글자크기에 대한 설정이 없으면 대략 16px -->
+    <p>부모 글꼴의 원래 크기</p>
+    <!-- %:부모요소에 대한 퍼센티지, em:부모요소에 대한 배수 -->
+    <p style="font-size: 150%;">부모 글꼴의 1.5배 크기</p>
+    <div style="font-size: 20px;">
+        부모텍스트
+        <p style="font-size: 1.5em;">자식텍스트</p>
+    </div>
+
+    <!-- vh : 높이에 대한 상대 비율, vw : 너비에 대한 상대 비율 
+     모바일관련은 상대비율기술 라이브러리구리-->
+    <p style="font-size: 5vh">디스플레이 높이에 대한 상대 크기</p>
+    <p style="font-size: 5vw">디스플레이 너비에 대한 상대 크기</p>
+
+    <!-- 박스가 꽉차있을때는 보통 padding을 주구리 -->
+    <h2>margin, border, padding에 대한 개념</h2>
+
+    <!-- 마진은 auto를 통해 가운데 정렬 수행가능  -->
+    <!-- place-content : center를 통해 (위아래)수직으로 정렬(padding) -->
+    <!-- text-align : center를 통해 (좌우)수평으로 정렬(padding) -->
+    <div style="border: 5px solid black; width: 400px; height: 200px; margin:auto; place-content: center; text-align: center;">
+        margin, border, padding 실습
+    </div>
+
+    <table border="1" style="border-collapse: collapse; height : 200px; width: 400px;  margin:auto; text-align : center;">
+        <!-- 수직패딩은 이미 들어가있고 수평은 패딩이 안들어가있구리 테이블 통째로만 옮길 때 margin:auto 나머지 text-align : center구리-->
+        <caption>테이블A</caption>
+        <thead>
+            <tr><th>컬럼1</th><th>컬럼2</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>데이터1</td><td>데이터2</td></tr>
+            <tr><td>데이터1</td><td>데이터2</td></tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!-- !엔터구리 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 중요구리 -->
+    <title>html form</title>
+</head>
+<body>
+    <h2>회원가입 form 태그 예제</h2>
+    <!-- form태그로 묶임 한 데이터처럼 취급 데이터를 묶어서 서버로 전송구리 -->
+    <!-- action에는 form태그 안에 input박스의 데이터들이 전송될 서버의 url주소 -->
+    <!-- form태그의 인코딩타입 : 1)url인코딩방식(텍스트만) 2)multipart/form-data 방식(이미지포함) -->
+    <!-- url인코딩과 form-data 형식 : name="hong"&email="hong@naver.com"&password="12" -->
+    <!-- json형식은 순수html만으론 불가하고 js를 통해 조립 -->
+    <!-- json형식 : {name:"hong", email:"hong@naver.com", password:"1234"}-->
+    <form action="https://naver.com" method="post" enctype="multipart/form-data">
+        <!-- input의 입력되는 데이터의 키값이 필요(중요구리) -->
+        <div>
+            <!-- label for구문은 input박스의 id값을 찾아 매핑 이름: 누르면 input박스찾아 입력가능(중요X) -->
+            <label for="userName">이름 : </label>
+            <input type="text" id="userName" name="name">
+        </div>
+        <div>
+            <!-- 제출하는 시점에 정규표현식으로 검증구리 type email은 골뱅이만 검증구리 -->
+            email : <input type="email" name="email">
+        </div>
+        <div>
+            password : <input type="password" name="password">
+        </div>
+        <div>
+            <!-- size : input박스의 크기, maxlength : 입력가능글자수제한 -->
+            <!-- readonly : 수정불가(서버로전송은됨), disabled : 수정불가(서버로전송도X) -->
+            주소 : <input type="text" size="30" maxlength="40" readonly>
+        </div>
+        <div>
+            <!-- email="hong@naver.com"&gender="male" 형태로 서버로 전송 gender라는 키값 male밸류값구리-->
+            성별 : 
+            <input type="radio" name="gender" value="male">남성
+            <input type="radio" name="gender" value="female" checked>여성
+        </div>
+        <div>
+            관심사항 :
+            <!-- 체크박스의 경우 키=[v1, v2, ...] -->
+            <input type="checkbox" name="interest" value="sports">스포츠
+            <input type="checkbox" name="interest" value="music">음악
+            <input type="checkbox" name="interest" value="reading">독서
+        </div>
+        <div>
+            <!-- 어떻게 서버에서 파싱하지구리 LocalDateTime객체로 바꾸고싶다구리-->
+            생년월일 : <input type="datetime-local" name="birthday">
+        </div>
+        <div>
+            나이 : <input type="number" name="age">
+        </div>
+        <div>
+            <!-- 누르면 쭉 나오는거 selectBox -->
+            역할선택 :
+            <select name="role">
+                <option value="admin">관리자</option>
+                <option value="user">일반유저</option>
+                <option value="guest">방문자</option>
+            </select>
+        </div>
+        <div>
+            <!-- accept로 걸러주구리 이런거 javascript로 다 할수 있구리 -->
+            증명사진 : <input type="file" name="profile_image" accept="image/*">
+        </div>
+        <div>
+            자기소개 :
+            <textarea name="resume" rows="5" cols="30" placeholder="자기소개를 입력해주세요."></textarea>
+        </div>
+        <div>
+            <!-- form태그에서 제출방법 2가지 1)input태그 2)button태그(더많이씀 디자인 다이내믹하게 하기 좋음) -->
+            <input type="submit" value="제출">
+            <button type="submit">제출</button>
+        </div>
+
+    </form>
+</body>
+</html>

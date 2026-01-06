@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 중요 link태그는 외부스타일파일을 현재 html파일로 import -->
+    <link rel="stylesheet" href="css/mystyle.css">
+    <!-- head안에 style태그 안에 2)내부스타일-->
+    <style>
+        /* 태그선택 */
+        p{
+            color: red; font-size: 50px;
+        }
+        /* .은 클래스선택 */
+        .c1{
+            color: blue;
+            font-size: 25px;
+        }
+        .c2{
+            text-decoration: underline;
+        }
+        /* #은 ID선택 */
+        #i1{
+            color: grey;
+        }
+        /* 자식선택자 */
+        div > h2{
+            color:red;
+        }
+    </style>
+    <!-- 내부스크립트 작성(head부) ((잘안하구리 -->
+    <script>
+        function update(){
+            document.getElementById("f1").innerHTML="변경됐습니다.";
+        }
+        document.getElementById("load1").innerHTML="변경됐습니다.load";
+    </script>
+    <title>css intro</title>
+</head>
+<body>
+    <!-- CSS 적용방법 3가지 1)인라인스타일 2)내부스타일(빈번) 3)외부스타일(css/mystyle.css) -->
+     <!-- 인라인 스타일 : 태그내에서 style 옵션 적용 -->
+    <p style="color: green; text-align: center;">디자인 적용</p>
+
+    <!-- 내부스타일 적용 : 태그선택자, 클래스선택자(많이씀), ID(유일)선택자(잘안씀)-->
+    <p>태그 선택자 적용</p>
+    <!-- 빨강이 아님 구체적인게 우선 -->
+    <p class="c1">클래스 선택자 적용</p>
+    <p class="c1">클래스 선택자 적용</p>
+    <p id="i1">ID 선택자 적용</p>
+    <!-- 클래스의 중첩 적용(빈번하게 사용)-->
+    <p class="c1 c2">클래스 중첩 적용</p>
+
+    <!-- 외부스타일 적용 -->
+    <p class="c3">외부스타일 적용</p>
+
+    <!-- 자식선택자 -->
+    <div style="color: green;">
+        <h2>자식선택자</h2>
+        <h3>자식선택자</h3>
+    </div>
+
+
+
+
+    <h2>javascript 예시</h2>
+    <!-- js적용방법 2가지 : 내부스크립트, 외부스크립트 -->
+    <!-- 클릭하면 updateF1함수를 실행하겠다. -->
+    <p id="f1">변경될 내용1</p>
+    <button onclick="update()">내용 변경 실습1</button>
+    <p id="f2">변경될 내용2</p>
+    <button onclick="update2()">내용 변경 실습2</button>
+    <button onclick="rollback()">내용2 원상복구</button>
+
+    <!-- style은 body에다가쓰면 안되지만 내부script는 body의 주로 맨끝에 사용구리 -->
+    <!-- 내부스크립트작성(body부) -->
+    <script>
+        function update2(){
+            document.getElementById("f2").innerHTML="변경됐습니다.2";
+        }
+    </script>
+
+    <!-- 외부스크립트import -->
+    <script src="js/myjs.js"></script>
+
+    <!-- html문서 안에서 script선언하는 방법 2가지(head, body)의 차이 -->
+    <!-- html문서는 상단의 head부터 순차적으로 실행되고, 그에 따라 head의 script와 body의 script의 실행순서가 달라짐 -->
+    <!-- 변경X load1모르구리-->
+    <p id="load1">js 로드 순서1</p>
+    <!-- 변경O -->
+    <p id="load2">js 로드 순서2</p>
+
+    <script>
+        document.getElementById("load2").innerHTML="변경됐습니다.load2";
+    </script>
+     <!-- 버튼을 누르는 시점에 호출되구리 -->
+
+</body>
+</html>
