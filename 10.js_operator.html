@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js operator</title>
+    <script>
+        function biggerNum(a, b) {
+            const bigger = a > b ? a : b;
+            document.getElementById("result").innerHTML = bigger;
+            if (a > b) {
+                bigger = a;
+            } else {
+                bigger = b;
+            }
+        }
+        function compareString() {
+            // js에서 문자열비교는 부등호 사용가능
+            const st1 = "abc";
+            const st2 = "bcd";
+            console.log(st1 < st2);
+        }
+        function convertType() {
+
+        }
+        function convertType() {
+            // 숫자를 문자로, 문자를 숫자로 변환, 타입반환
+            let st1 = "10";
+            let st2 = "hello";
+            let num1 = Number(st1);
+            console.log(typeof num1);
+            num1 = String(num1);
+            console.log(typeof num1);
+            let num2 = Number(st2);
+            console.log(num2);//NaN(Not a Number)가 담김
+
+            // ==은 타입은 체크하지 않음. ===타입까지 체크.
+            console.log(10 == 10);//true
+            console.log(10 === 10)
+            console.log(10 == '10');//true 타입을 무시하고 값만을 비교
+            console.log(10 === '10');//false 타입까지 검사(매우 중요)
+
+            let v1; //undefined가 할당(java에는 없는 개념)
+            let v2 = null; //null이 할당
+
+            console.log(v1);
+            console.log(v2);
+            console.log(v1 == v2); //true
+            console.log(v1 === v2); //false   (서버에서 올때)코드의 일관성있이 null 넣어줘야함 프론트에서 헷갈림구리
+            let p1 = { name: 'hong', email: 'abc@naver.com', nickName: null }
+            console.log(p1.nickName); //null
+            console.log(p1.age); //undefined
+            if (p1.age === null) {
+
+            } else {
+
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <h2>연산자 예시</h2>
+    <button onclick="biggerNum(10, 20)">삼항연산자 결과</button>
+    <p id="result">결과값</p>
+
+    <button onclick="compareString()">문자비교 결과</button>
+    <button onclick="convertType()">형변환</button>
+    <br>
+    <button onclick="biggerNum2(10, 20)">삼항연산자 활용</button>
+    <input id="first" type="text"><input id="second" type="text">
+    <span id="result2">둘중 더 큰 값</span>
+    <script>
+        function biggerNum2() {
+            // HTML에 요소는 기본이 문자값
+            const first = document.getElementById("first").value;//화면에 입력한 값 가져오기
+            const second = document.getElementById("second").value;
+            const firstNumber = Number(first);
+            const secondNumber = Number(second);
+            
+            const bigger = firstNumber > secondNumber ? firstNumber : secondNumber;
+            
+            console.log(first);
+            console.log(second);
+            document.getElementById("result2").innerHTML = bigger;
+        }
+    </script>
+</body>
+
+</html>

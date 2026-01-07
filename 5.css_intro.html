@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 중요 link태그는 외부스타일파일을 현재 html파일로 import -->
+     <!-- http 인터넷 주소가 오기도한다 -->
     <link rel="stylesheet" href="css/mystyle.css">
     <!-- head안에 style태그 안에 2)내부스타일-->
     <style>
@@ -75,6 +76,7 @@
     <!-- style은 body에다가쓰면 안되지만 내부script는 body의 주로 맨끝에 사용구리 -->
     <!-- 내부스크립트작성(body부) -->
     <script>
+        // 호출되야 실행구리
         function update2(){
             document.getElementById("f2").innerHTML="변경됐습니다.2";
         }
@@ -91,6 +93,7 @@
     <p id="load2">js 로드 순서2</p>
 
     <script>
+        // 바로 실행구리
         document.getElementById("load2").innerHTML="변경됐습니다.load2";
     </script>
      <!-- 버튼을 누르는 시점에 호출되구리 -->
