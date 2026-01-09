@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js axios</title>
+    <!-- xios 너무 많이 사용, 중요 -->
+    <!-- xios가 이 라이브러리 안으로 들어옴? -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <script>
+        // async는 함수전체가 비동기임을 의미
+        async function dataRequest() {
+            // await는 비동기함수내에서 각 함수의 호출의 동기성을 보장하기 위한 키워드
+            // axios는 서버api요청에서 가장 많이 사용하는 라이브러리
+            // axios는 비동기함수이고, 서버응답json을 객체로 parsing해준다
+            const result1 = await axios.get("https://jsonplaceholder.typicode.com/posts/1");
+            console.log(result1);//http응답값 자체 저장, 서버에서 이런저런 환경정보들 
+            console.log("result1");
+            // axios를 통해 body데이터를 얻기 위해서는 .data를 통해 객체 추출해야 한다. 
+            // ((java C06 http문서안에서 body값을 꺼낸다구리))
+            console.log(result1.data);
+            const result2 = await axios.get("https://jsonplaceholder.typicode.com/posts/1");
+            console.log("result2");
+            console.log(result2.data);
+
+            const result3 = await axios.get("https://jsonplaceholder.typicode.com/posts/1");
+            console.log("result3");
+            console.log(result3.data);
+        }
+        dataRequest();
+        console.log("a");
+
+    </script>
+</body>
+
+</html>

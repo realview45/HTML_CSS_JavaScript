@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js callback</title>
+</head>
+
+<body>
+    <button onclick="basicFunction()">일반함수 호출</button>
+    <button onclick="callBackFunction1()">콜백함수 예제1</button>
+    <button onclick="callBackFunction2()">콜백함수 예제2</button>
+    <button onclick="callBackFunction3()">콜백함수 예제3</button>
+    <script>
+        function basicFunction() {
+            console.log("hello world");
+        }
+        function callBackFunction1() {
+            callBackTest(() => { console.log("hello java"); });
+        }
+        // 콜백함수 : 다른 함수의 매개변수로 넘겨지는 함수
+        function callBackTest(f1) {
+            f1();
+        }
+        function callBackFunction2() {
+            const numbers = [1, 2, 3, 4, 5];
+            // foreach, map 등 함수형프로그래밍에서 콜백함수 형식을 많이 사용
+            numbers.forEach(a => console.log(a));
+            // js는 기본적으로 동기적으로 동작.(콜백함수 포함) 동기(순서대로 실행)면 싱글스레드?
+            console.log("hello python");
+            // 자바스크립트는 기본적으로 완전한 싱글스레드 비동기인 경우가 있음
+        }
+        function callBackFunction3() {
+// 콜백함수는 다른함수에 매개변수로 넘겨지는 함수 javascript 모든 함수는 기본적으로 동기적으로 동작
+
+
+            // setTimeout : n초 뒤에 요청한 작업을 처리해주는 함수.
+            // setTimeOut : 콜백함수처리 + 비동기적으로 동작하는 대표적인 함수.
+            // js에서 비동기적으로 동작하는 함수는 일반적으로 실행시간이 오래걸리는 작업(서버에 api요청)
+            setTimeout(() => console.log("hello java1"), 2000);
+            console.log("hello python1");
+            // 실행순서를 보장해야 하는 상황에서 문제 발생. 콜백지옥
+            setTimeout(() => console.log("hello java2"), 2000);
+            console.log("hello python2");
+        }
+    </script>
+</body>
+
+</html>

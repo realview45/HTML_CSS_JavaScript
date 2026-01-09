@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>심플 계산기</title>
+    <style>
+        /* CSS: 이미지와 유사한 레이아웃 설정 */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            display: flex;
+            gap: 5px;
+            align-items: flex-start;
+        }
+
+        /* 드롭다운 선택창 */
+        select {
+            padding: 5px;
+            font-size: 18px;
+            height: 35px;
+        }
+
+        /* 연산실행 버튼 */
+        button {
+            padding: 0 10px;
+            height: 35px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            border: 1px solid #767676;
+            border-radius: 2px;
+        }
+
+        button:active {
+            background-color: #e0e0e0;
+        }
+
+        /* 숫자 입력창 */
+        input {
+            padding: 5px;
+            font-size: 18px;
+            width: 250px;
+            height: 23px;
+            border: 1px solid #767676;
+        }
+
+        /* 결과 표시 스타일 (선택사항) */
+        #result-display {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <select id="operator">
+        <option value="add">덧셈</option>
+        <option value="sub">뺄셈</option>
+        <option value="mul">곱셈</option>
+        <option value="div">나눗셈</option>
+    </select>
+
+    <button onclick="calculate()">연산실행</button>
+
+    <input type="number" id="num1" placeholder="숫자 입력">
+
+    <input type="text" id="num2" placeholder="숫자 입력">
+    
+    <input type="result" id="num2" placeholder="결과">
+
+
+    <script>
+        // JavaScript: 계산 로직
+        function calculate() {
+            // 1. 값 가져오기
+            const n1 = parseFloat(document.getElementById('num1').value);
+            const n2 = parseFloat(document.getElementById('num2').value);
+            const op = document.getElementById('operator').value;
+            const resultField = document.getElementById('result');
+
+            // 2. 유효성 검사 (숫자인지 확인)
+            if (isNaN(n1) || isNaN(n2)) {
+                alert("두 칸 모두 숫자를 입력해주세요.");
+                return;
+            }
+
+            let result = 0;
+
+            // 3. 연산 수행
+            switch (op) {
+                case 'add': result = n1 + n2; break;
+                case 'sub': result = n1 - n2; break;
+                case 'mul': result = n1 * n2; break;
+                case 'div': 
+                    if (n2 === 0) {
+                        alert("0으로 나눌 수 없습니다.");
+                        return;
+                    }
+                    result = n1 / n2; 
+                    break;
+            }
+
+            // 4. 결과 출력 (이미지 형식에 맞춰 두 번째 입력창에 결과 표시)
+            resultField.value = result;
+        }
+    </script>
+</body>
+</html>

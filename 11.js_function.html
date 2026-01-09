@@ -75,47 +75,14 @@
             const b1 = document.getElementById("b1");//b1의 요소를 찾고 
             b1.addEventListener('click', ()=>console.log("hello world"));//클릭걸고(클릭하면) 출력
         }
+
+        // 페이지네이션 : 데이터를 끊어서 보여준다.
+        // 버튼으로 이루어진 1)기본 페이지네이션
+        // 2)scroll 스크롤 위아래로 움직이는 스크롤페이지 네이션
         function scrollEvent(){
             window.addEventListener('scroll', ()=>console.log("hello world"));//외우구리 많이 사용
         }
         function reloadScreen(){
             window.location.reload();//alert()도구리
         }
-        function moveScreen(){
-            window.location.href = "https:///www.naver.com";//많이씀
-        }
-        function createPerson(name, email, age){
-            return {
-                name:name,
-                email:email,
-                age:age,
-                printPerson:()=>{
-                    return "이름은 " + name + " email은 " +email + " 나이는 " +age;
-                }
-            }
-        }
-        function objArrFunction2() {
-            const p1 =createPerson('hong','hong@naver.com', 30);
-            console.log(p1);
-            console.log(p1.printPerson());
-        }
-        function objArrFunction1() {
-            const arr = [1, 2, () => { console.log("hello world") }];
-            arr[2]();
-        }
-
-        function functionWithException() {
-            // 프론트에서 예외처리는 주로, 사용자에게 적절한 안내를 주거나, 코드의 중단을 막기 위해 사용. trycatch빈번
-            // example함수 호출하다 에러나면 stop 그러면안됨 화면은 왠만하면 뿌려줘야 함(서버는 db저장까지 가면 안되서 중단해야함)
-            try {//처음부터 끝까지 try catch로 감싸
-                example();//없는 함수 호출 시 에러발생
-            } catch (e) {//혹은 error
-                alert("알수 없는 에러 발생!!");
-                console.log(e);
-            }
-            console.log("hello world")
-        }
-    </script>
-</body>
-
-</html>
+    
