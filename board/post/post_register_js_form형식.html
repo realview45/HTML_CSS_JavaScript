@@ -7,7 +7,6 @@
     <!-- 내가만든클래스처럼 남이 만든 클래스를 갖다씀 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <title>게시글목록</title>
-    
 </head>
 
 <body>
@@ -31,19 +30,40 @@
         <!-- 조회시 table 입력해서 서버로 넘길때는 form태그 -->
         <h3>글쓰기</h3>
         <!-- 제출을 누르면 이자리로 저장구리 -->
-         <!-- post메서드 순수html을 활용한 post요청구리 조립구리-->
-        <form action="http://localhost:8081/post/register2" method="post" enctype="application/x-www-form-urlencoded">
+        <form action="http://localhost:8080/post/register" method="post" enctype="application/x-www-form-urlencoded">
             <div class="form-group">
                 <label for="title">제목</label><br>
                 <input class="form-control" type="text" id="title" name="title" size="30">
             </div>
             <div>
                 <label for="contents">내용</label><br>
-                <textarea class="form-control" name="contents" id="contents" rows="10" cols="30" placeholder="여기에 입력해주세요."></textarea>
+                <textarea class="form-control" name="contents" id="contents" rows="10" cols="30"
+                    placeholder="여기에 입력해주세요."></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">제출</button>
+            <button type="button" class="btn btn-primary" onclick="dataCreate()">제출</button>
         </form>
     </div>
+    <script>
+        async function dataCreate() {
+            try {
+                const title = document.getElementById("title").value;
+                const contents = document.getElementById("contents").value;
+                // js를 통해 객체 조립 후 axios post 전송시 json처리
+                // js를 통해 FormData클래스를 통해 데이터 조립시 url인코딩(또는 multipart-formdata로 처리)
+                // const data = { title: title, contents: contents };
+                const data = new FormData();
+                // FormData를 통한 형식 : title=hello&contents=hello world java&...
+                data.append("title", title);
+                data.append("contents", contents);
+
+                await axios.post("http://localhost:8081/post/register1", data);
+                window.location.href = "post_list.html";
+            } catch (error) {
+                alert("예상치 못한 에러가 발생했습니다.");
+                consol.log(error);
+            }
+        }
+    </script>
 </body>
 
 </html>

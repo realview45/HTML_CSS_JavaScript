@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js axios practice</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <button onclick="singleData()">단건데이터조회</button>
+    <button onclick="multiData()">리스트데이터조회</button>
+    <script>
+        async function singleData() {
+            const result1 = await axios.get("https://jsonplaceholder.typicode.com/posts/1");
+            console.log(result1.data);
+        }
+        async function multiData() {
+            const result2 = await axios.get("https://jsonplaceholder.typicode.com/posts/");
+            console.log(result2.data);
+        }
+    </script>
+</body>
+</html>

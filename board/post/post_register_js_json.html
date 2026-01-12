@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 내가만든클래스처럼 남이 만든 클래스를 갖다씀 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <title>게시글목록</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <!-- 내가만든클래스처럼 남이 만든 클래스를 갖다씀 -->
+    <!--늘어나고 줄어드는-->
+    <nav class="navbar bg-dark navbar-dark navbar-expand-lg">
+        <a href="../post/post_list.html" class="navbar-brand mx-auto">게시판 서비스</a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="../author/author_list.html" class="nav-link">회원목록</a>
+            </li>
+            <li class="nav-item">
+                <a href="../post/post_list.html" class="nav-link">게시글목록</a>
+            </li>
+            <li class="nav-item">
+                <a href="../author/author_register.html" class="nav-link">회원가입</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <!-- 조회시 table 입력해서 서버로 넘길때는 form태그 -->
+        <h3>글쓰기</h3>
+        <!-- 제출을 누르면 이자리로 저장구리 -->
+        <form>
+            <div class="form-group">
+                <label for="title">제목</label><br>
+                <input class="form-control" type="text" id="title" size="30">
+            </div>
+            <div>
+                <label for="contents">내용</label><br>
+                <textarea class="form-control" id="contents" rows="10" cols="30" placeholder="여기에 입력해주세요."></textarea>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="dataCreate()">제출</button>
+        </form>
+    </div>
+    <!-- 수없이 반복되는 등록작업구리 -->
+    <script>
+        async function dataCreate() {
+            // 빈번히 에러가 날 수도 있는 서버api호출 부분을 try catch처리
+            // 예외처리를 통해 성공하면 리다이렉트, 실패하면 팝업창을 통해 안내.
+            try {
+                const title = document.getElementById("title").value;
+                const contents = document.getElementById("contents").value;
+                const data = { title: title, contents: contents };
+                // axios의 post함수를 통해 js의 객체를 json으로 자동형변환
+                // url에 객체(알아서 json으로 만들어준다구리) 넣어버린다구리 에러발생가능성높음trycatch무조건 넣어라구리
+                await axios.post("http://ec2-13-209-96-77.ap-northeast-2.compute.amazonaws.com:8081/post/register1", data);//정상적 실행시 화면을 다른 곳으로 redirect
+                window.location.href = "http://realview45-board.s3.ap-northeast-2.amazonaws.com/post_list.html";
+            } catch (error) {
+                alert("예상치 못한 에러가 발생했습니다.");//사용자에게 알림
+                consol.log(error);//개발자에게 알림
+            }
+        }
+    </script>
+</body>
+
+</html>
